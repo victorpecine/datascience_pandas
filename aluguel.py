@@ -91,7 +91,32 @@ dataset_valores_nulos = (dataset['Valor'].isnull()) | (dataset['Condominio'].isn
 
 
 # Alterando valores nulos para 0
-dataset = dataset.fillna({'Condominio': 0, 'IPTU': 0})
+dataset = dataset.fillna({'Valor':0, 'Condominio': 0, 'IPTU': 0})
 # print(dataset)
 
-dataset.to_csv('aluguel.csv', sep=';', index=False)
+# dataset.to_csv('aluguel.csv', sep=';', index=False)
+# dados_residencial.to_csv('dados_residencial.csv', sep=';', index=False)
+
+
+# Criando novas variáveis
+dados_residencial['Valor bruto'] = dados_residencial['Valor'] + dados_residencial['Condominio'] + dados_residencial['IPTU']
+
+dados_residencial['Valor/m2'] = (dados_residencial['Valor'] / dados_residencial['Area']).round(2)
+
+# Excluindo registros com Valor = 0
+dados_residencial.drop(dados_residencial[dados_residencial['Valor'] == 0].index, inplace=True)
+
+# print(dados_residencial.sort_values(by=['Valor/m2'], ascending=False))
+
+
+# Agrupando tipos entre Casa ou Apartamento
+casa = ['Casa', 'Casa de Condomínio', 'Casa de Vila']
+dados_residencial['Tipo agregado'] = dados_residencial['Tipo'].apply(lambda x: 'Casa' if x in casa else 'Apartamento')
+
+# print(dados_residencial)
+
+del dados_residencial['Valor bruto']
+
+# print(dados_residencial)
+
+dados_residencial.to_csv('dados_residencial.csv', sep=';', index=False)

@@ -75,7 +75,7 @@ Conjunto Comercial/Sala;Centro;0;0;0;1;2850.0;2050.0;0.0
 Apartamento;Ipanema;3;1;1;140;7900.0;2900.0;500.0
 Casa;Méier;2;0;0;51;1500.0;50.0;0.0
 Apartamento;Jardim Botânico;2;2;0;95;4000.0;1170.0;0.0
-Apartamento;Barra da Tijuca;2;1;1;70;;970.0;68.0
+Apartamento;Barra da Tijuca;2;1;1;70;0.0;970.0;68.0
 Apartamento;Cachambi;2;0;0;60;1000.0;380.0;280.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;1;0;33;700.0;1010.0;56.0
 Conjunto Comercial/Sala;Jardim Botânico;0;1;0;24;2500.0;682.0;112.0
@@ -2185,7 +2185,7 @@ Conjunto Comercial/Sala;Barra da Tijuca;0;1;0;31;1000.0;917.0;125.0
 Apartamento;Grajaú;2;2;1;90;2700.0;1713.0;260.0
 Apartamento;São Conrado;4;3;4;530;25000.0;15330.0;0.0
 Conjunto Comercial/Sala;Copacabana;0;0;0;28;1000.0;660.0;0.0
-Apartamento;Leme;2;0;0;75;;878.0;0.0
+Apartamento;Leme;2;0;0;75;0.0;878.0;0.0
 Apartamento;Barra da Tijuca;2;1;1;80;2500.0;1224.0;212.0
 Conjunto Comercial/Sala;Centro;0;0;0;4;450.0;0.0;0.0
 Apartamento;Laranjeiras;2;1;0;80;2000.0;450.0;0.0
@@ -2455,7 +2455,7 @@ Apartamento;Tijuca;2;1;1;92;2900.0;907.0;0.0
 Apartamento;Recreio dos Bandeirantes;2;1;1;90;1700.0;549.0;212.0
 Apartamento;Barra da Tijuca;3;3;3;266;15000.0;3700.0;692.0
 Loja/Salão;Barra da Tijuca;0;2;0;154;10800.0;2977.0;744.0
-Casa;Campo Grande;3;4;3;363;;0.0;0.0
+Casa;Campo Grande;3;4;3;363;0.0;0.0;0.0
 Apartamento;Copacabana;2;0;0;80;2400.0;995.0;180.0
 Conjunto Comercial/Sala;Copacabana;0;1;0;60;3000.0;1100.0;250.0
 Apartamento;Tijuca;3;2;1;135;2000.0;920.0;2400.0
@@ -2645,7 +2645,7 @@ Casa;Campo Grande;2;1;0;80;2000.0;0.0;0.0
 Apartamento;Flamengo;3;2;1;216;5800.0;1750.0;350.0
 Conjunto Comercial/Sala;Freguesia (Jacarepaguá);0;1;0;52;2000.0;979.0;600.0
 Casa de Condomínio;Vargem Grande;4;1;2;180;2300.0;0.0;20.0
-Loja/Salão;Barra da Tijuca;0;2;0;80;;0.0;0.0
+Loja/Salão;Barra da Tijuca;0;2;0;80;0.0;0.0;0.0
 Apartamento;Copacabana;1;0;1;30;2700.0;0.0;0.0
 Apartamento;Campo Grande;2;0;0;60;700.0;0.0;0.0
 Casa Comercial;Vila Valqueire;0;4;0;360;8500.0;0.0;160.0
@@ -2940,7 +2940,7 @@ Terreno Padrão;Curicica;0;0;0;2000;24000.0;0.0;500.0
 Apartamento;Tijuca;2;0;2;68;1600.0;606.0;62.0
 Apartamento;Copacabana;3;0;1;115;2900.0;950.0;102.0
 Apartamento;Barra da Tijuca;4;4;4;235;17000.0;4400.0;1442.0
-Apartamento;Botafogo;2;0;0;95;;1010.0;170.0
+Apartamento;Botafogo;2;0;0;95;0.0;1010.0;170.0
 Conjunto Comercial/Sala;Centro;0;0;0;62;2000.0;720.0;167.0
 Apartamento;Recreio dos Bandeirantes;2;1;1;70;2000.0;690.0;185.0
 Apartamento;Botafogo;3;0;0;157;2700.0;970.0;200.0
@@ -2972,7 +2972,7 @@ Apartamento;Ipanema;4;2;1;140;7000.0;2500.0;0.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;2;0;101;5500.0;2606.0;0.0
 Apartamento;Recreio dos Bandeirantes;3;2;1;108;2900.0;0.0;0.0
 Apartamento;Leblon;3;1;1;150;7500.0;770.0;556.0
-Apartamento;Copacabana;2;0;0;72;;850.0;0.0
+Apartamento;Copacabana;2;0;0;72;0.0;850.0;0.0
 Apartamento;Leblon;3;2;1;156;12000.0;2800.0;490.0
 Conjunto Comercial/Sala;Pechincha;0;1;0;21;850.0;360.0;80.0
 Apartamento;Ipanema;4;3;2;230;7500.0;3880.0;708.0
@@ -6597,7 +6597,7 @@ Conjunto Comercial/Sala;Centro;0;0;0;262;5000.0;4110.0;1367.0
 Apartamento;Barra da Tijuca;4;3;2;160;3500.0;1600.0;500.0
 Apartamento;Leblon;2;0;1;90;4800.0;1129.0;210.0
 Conjunto Comercial/Sala;Centro;0;0;0;294;13300.0;5300.0;300.0
-Loja/Salão;Andaraí;0;0;0;326;;0.0;1140.0
+Loja/Salão;Andaraí;0;0;0;326;0.0;0.0;1140.0
 Casa;Ramos;2;1;0;50;1000.0;0.0;120.0
 Conjunto Comercial/Sala;Méier;0;0;0;30;800.0;725.0;52.0
 Apartamento;Barra da Tijuca;3;2;1;130;4499.0;1750.0;400.0
@@ -7301,7 +7301,7 @@ Quitinete;Vargem Grande;1;0;0;35;800.0;230.0;0.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;1;0;50;1200.0;1000.0;112.0
 Loja/Salão;Recreio dos Bandeirantes;0;1;0;150;5000.0;441.0;1500.0
 Apartamento;Ipanema;3;1;1;170;7000.0;1500.0;419.0
-Casa;Campo Grande;3;2;1;100;;0.0;0.0
+Casa;Campo Grande;3;2;1;100;0.0;0.0;0.0
 Apartamento;Copacabana;3;0;0;74;2500.0;750.0;152.0
 Quitinete;Centro;1;0;0;35;650.0;398.0;0.0
 Loja/Salão;Copacabana;0;0;0;22;3000.0;281.0;18.0
@@ -12682,7 +12682,7 @@ Apartamento;Ipanema;3;1;1;120;5000.0;1230.0;271.0
 Apartamento;Botafogo;2;1;1;103;2950.0;1026.0;215.0
 Apartamento;Barra da Tijuca;3;3;2;250;14000.0;3800.0;1100.0
 Apartamento;Barra da Tijuca;2;1;1;90;2450.0;1404.0;2819.0
-Apartamento;Leme;2;0;1;75;;878.0;0.0
+Apartamento;Leme;2;0;1;75;0.0;878.0;0.0
 Apartamento;Tijuca;2;1;1;84;1800.0;815.0;107.0
 Conjunto Comercial/Sala;Botafogo;0;8;0;825;99000.0;15167.0;0.0
 Loja/Salão;Centro;0;0;0;290;35000.0;0.0;1100.0
@@ -13228,7 +13228,7 @@ Conjunto Comercial/Sala;Recreio dos Bandeirantes;0;1;0;28;1000.0;0.0;0.0
 Apartamento;Barra da Tijuca;4;4;4;435;25000.0;6960.0;1700.0
 Apartamento;Tijuca;2;1;0;61;1400.0;471.0;50.0
 Apartamento;São Conrado;1;2;1;60;1800.0;1170.0;60.0
-Apartamento;Glória;3;0;1;135;;910.0;228.0
+Apartamento;Glória;3;0;1;135;0.0;910.0;228.0
 Apartamento;Flamengo;4;2;2;500;23000.0;3000.0;1504.0
 Apartamento;Tijuca;3;1;1;68;2400.0;1015.0;1152.0
 Apartamento;Leblon;3;1;0;90;3700.0;980.0;320.0
@@ -13524,7 +13524,7 @@ Apartamento;Flamengo;2;0;0;85;2450.0;700.0;120.0
 Apartamento;Copacabana;1;0;0;28;1000.0;350.0;0.0
 Apartamento;Tijuca;1;0;0;30;1600.0;0.0;0.0
 Casa de Condomínio;Recreio dos Bandeirantes;4;2;3;185;2400.0;880.0;334.0
-Apartamento;Gávea;3;1;1;105;;880.0;221.0
+Apartamento;Gávea;3;1;1;105;0.0;880.0;221.0
 Conjunto Comercial/Sala;Centro;0;0;0;200;6000.0;5470.0;0.0
 Apartamento;Copacabana;1;0;0;25;1200.0;440.0;30.0
 Apartamento;Barra da Tijuca;3;2;1;140;3000.0;1402.0;0.0
@@ -13578,7 +13578,7 @@ Galpão/Depósito/Armazém;Botafogo;1;20;0;3500;50000.0;0.0;0.0
 Quitinete;Catete;1;0;0;26;1000.0;405.0;0.0
 Apartamento;Copacabana;1;0;0;40;1700.0;620.0;62.0
 Conjunto Comercial/Sala;Centro;0;0;0;100;4000.0;484.0;310.0
-Conjunto Comercial/Sala;Botafogo;0;3;0;200;;10.0;0.0
+Conjunto Comercial/Sala;Botafogo;0;3;0;200;0.0;10.0;0.0
 Conjunto Comercial/Sala;Centro;0;0;0;394;15000.0;5000.0;0.0
 Apartamento;Barra da Tijuca;3;2;2;240;5500.0;2844.0;660.0
 Apartamento;Copacabana;4;1;1;250;4100.0;1594.0;320.0
@@ -20947,7 +20947,7 @@ Apartamento;Flamengo;3;1;0;110;3400.0;880.0;200.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;8;0;38;2670.0;198.0;13.0
 Apartamento;Leblon;4;3;2;190;12000.0;3300.0;688.0
 Apartamento;Barra da Tijuca;2;1;1;58;1800.0;800.0;200.0
-Conjunto Comercial/Sala;Freguesia (Jacarepaguá);0;1;0;24;;500.0;74.0
+Conjunto Comercial/Sala;Freguesia (Jacarepaguá);0;1;0;24;0.0;500.0;74.0
 Apartamento;Barra da Tijuca;2;2;1;105;4500.0;1970.0;489.0
 Flat;Ipanema;2;1;1;85;8000.0;3300.0;570.0
 Apartamento;Barra da Tijuca;5;5;5;555;14509.0;6925.0;21660.0
@@ -21821,7 +21821,7 @@ Loja Shopping/ Ct Comercial;Barra da Tijuca;0;1;0;14;1200.0;546.0;153.0
 Apartamento;Ipanema;3;0;1;90;5000.0;0.0;0.0
 Casa de Condomínio;Barra da Tijuca;5;1;2;250;7000.0;1600.0;530.0
 Apartamento;Ipanema;2;1;0;80;3000.0;850.0;180.0
-Loja Shopping/ Ct Comercial;Barra da Tijuca;0;2;0;77;;3600.0;1390.0
+Loja Shopping/ Ct Comercial;Barra da Tijuca;0;2;0;77;0.0;3600.0;1390.0
 Apartamento;Copacabana;3;0;0;250;9500.0;1600.0;500.0
 Apartamento;Laranjeiras;2;1;1;86;2600.0;820.0;0.0
 Apartamento;Freguesia (Jacarepaguá);3;1;1;73;1500.0;572.0;83.0
@@ -23055,7 +23055,7 @@ Prédio Inteiro;Ipanema;0;0;0;450;90000.0;0.0;0.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;16;0;600;80000.0;13000.0;570.0
 Galpão/Depósito/Armazém;Inhaúma;0;3;0;600;5500.0;0.0;257.0
 Apartamento;Leblon;2;1;0;82;4200.0;1500.0;150.0
-Conjunto Comercial/Sala;Botafogo;0;0;0;900;;10.0;0.0
+Conjunto Comercial/Sala;Botafogo;0;0;0;900;0.0;10.0;0.0
 Apartamento;Botafogo;3;1;1;108;6000.0;1380.0;364.0
 Casa de Condomínio;Barra da Tijuca;5;6;5;1100;25000.0;2000.0;25000.0
 Apartamento;Barra da Tijuca;4;3;1;180;8000.0;2400.0;6670.0
@@ -24804,7 +24804,7 @@ Box/Garagem;Catete;0;0;0;0;350.0;0.0;0.0
 Loja/Salão;Centro;0;0;0;45;3500.0;2201.0;370.0
 Galpão/Depósito/Armazém;Pavuna;0;0;0;6818;170450.0;22794.0;8181.0
 Conjunto Comercial/Sala;Centro;0;1;0;320;9900.0;3200.0;1306.0
-Conjunto Comercial/Sala;Botafogo;0;0;0;500;;10.0;0.0
+Conjunto Comercial/Sala;Botafogo;0;0;0;500;0.0;10.0;0.0
 Apartamento;Barra da Tijuca;4;4;4;565;20000.0;4800.0;1.0
 Conjunto Comercial/Sala;Barra da Tijuca;0;0;0;35;1200.0;1250.0;250.0
 Galpão/Depósito/Armazém;São Cristóvão;0;0;0;250;5000.0;0.0;0.0
@@ -29165,7 +29165,7 @@ Apartamento;Botafogo;2;1;1;67;4000.0;1510.0;289.0
 Casa de Condomínio;Barra da Tijuca;3;4;3;700;16000.0;2150.0;17000.0
 Apartamento;Recreio dos Bandeirantes;3;2;1;170;2800.0;1300.0;356.0
 Apartamento;Laranjeiras;2;0;0;66;2300.0;697.0;0.0
-Conjunto Comercial/Sala;Botafogo;0;1;0;50;;10.0;0.0
+Conjunto Comercial/Sala;Botafogo;0;1;0;50;0.0;10.0;0.0
 Apartamento;Maracanã;2;0;0;70;1600.0;280.0;21.0
 Apartamento;Taquara;3;1;0;50;1200.0;470.0;0.0
 Apartamento;Jacarepaguá;3;1;0;92;2400.0;800.0;0.0
