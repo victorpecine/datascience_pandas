@@ -6,8 +6,8 @@ dataset = pd.read_csv('aluguel.csv', sep=';')
 # print(dataset.dtypes)
 # print(dataset)
 
-tipos_dados = pd.DataFrame(dataset.dtypes, columns=['Tipos de dados'])
-tipos_dados.columns.name = 'Variáveis'
+# tipos_dados = pd.DataFrame(dataset.dtypes, columns=['Tipos de dados'])
+# tipos_dados.columns.name = 'Variáveis'
 # print(tipos_dados)
 
 # Qtd. de registros e variáveis
@@ -80,3 +80,18 @@ print('> {} imóveis com, no mínimo, 4 quartos e aluguel abaixo de R$ 2.000,00'
 
 # Lista dos imóveis que tenham pelo menos 4 quartos e aluguel menor que R$ 2.000,00
 # print(dados_residencial[series_quartos_alugueis])
+
+
+# Identificando dados nulos
+# print(dataset.info())
+
+# Visualizando registros nulos
+dataset_valores_nulos = (dataset['Valor'].isnull()) | (dataset['Condominio'].isnull()) | (dataset['IPTU'].isnull())
+# print(dataset[dataset_valores_nulos])
+
+
+# Alterando valores nulos para 0
+dataset = dataset.fillna({'Condominio': 0, 'IPTU': 0})
+# print(dataset)
+
+dataset.to_csv('aluguel.csv', sep=';', index=False)
