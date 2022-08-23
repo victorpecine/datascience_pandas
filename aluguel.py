@@ -119,4 +119,48 @@ del dados_residencial['Valor bruto']
 
 # print(dados_residencial)
 
-dados_residencial.to_csv('dados_residencial.csv', sep=';', index=False)
+# dados_residencial.to_csv('dados_residencial.csv', sep=';', index=False)
+
+# Contagem de tipos
+
+print('*'*30)
+
+cont_tipos_dataset = dataset['Tipo'].value_counts()
+print(cont_tipos_dataset)
+
+print('*'*30)
+
+cont_tipos_residencial = dados_residencial['Tipo'].value_counts()
+print(cont_tipos_residencial)
+
+print('*'*30)
+
+bairros = dados_residencial.groupby('Bairro')
+media_preco_bairros = bairros[['Valor', 'Condominio']].mean().round(2)
+
+print(media_preco_bairros.sort_values(by=['Valor'], ascending=False))
+
+
+
+
+
+
+
+alunos = pd.DataFrame({'Nome': ['Ary', 'Cátia', 'Denis', 'Beto', 'Bruna', 'Dara', 'Carlos', 'Alice'], 
+                        'Sexo': ['M', 'F', 'M', 'M', 'F', 'F', 'M', 'F'], 
+                        'Idade': [15, 27, 56, 32, 42, 21, 19, 35], 
+                        'Notas': [7.5, 2.5, 5.0, 10, 8.2, 7, 6, 5.6], 
+                        'Aprovado': [True, False, False, True, True, True, False, False]}, 
+                        columns = ['Nome', 'Idade', 'Sexo', 'Notas', 'Aprovado'])
+
+alunos_sexo = alunos.groupby()
+media_notas_sexo = alunos_sexo[['Notas']].mean().roun(2)
+
+
+
+sexo = alunos.groupby['Sexo']
+sexo = pd.DataFrame(sexo['Notas'].mean().round(2))
+sexo.columns = ['Notas Médias']
+
+
+print(sexo)
