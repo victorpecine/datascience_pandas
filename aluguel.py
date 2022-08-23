@@ -26,4 +26,24 @@ tamanho_dataframe_tipos_imoveis = tipos_imoveis.shape[0]
 
 tipos_imoveis.index = range(tipos_imoveis.shape[0])
 tipos_imoveis.columns.name = 'idTipo'
-print(tipos_imoveis)
+# print(tipos_imoveis)
+
+# Identificando imóveis residenciais
+residencial = ['Quitinete',
+                'Casa',
+                'Flat',
+                'Apartamento',
+                'Casa de Condomínio',
+                'Casa de Vila',
+                'Studio']
+
+# Selecionando apenas os tipos residenciais
+selecao_residencial = dataset['Tipo'].isin(residencial)
+
+# Dataframe tipo residencial
+dados_residencial = dataset[selecao_residencial]
+dados_residencial.index = range(dados_residencial.shape[0])
+# print(dados_residencial)
+
+# Exportando a base de dados
+dados_residencial.to_csv('dados_residencial.csv', sep=';', index=False)
