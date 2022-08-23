@@ -1,4 +1,7 @@
+from turtle import color
 import pandas as pd
+import matplotlib.pyplot as plt
+plt.rc('figure', figsize = (20,10))
 
 dataset = pd.read_csv('aluguel.csv', sep=';')
 
@@ -140,27 +143,12 @@ media_preco_bairros = bairros[['Valor', 'Condominio']].mean().round(2)
 
 print(media_preco_bairros.sort_values(by=['Valor'], ascending=False))
 
+fig_std = bairros['Valor'].std().plot.bar(color = 'blue')
+fig_std.set_ylabel('R$')
+fig_std.set_title('Desvio padrão do aluguel por bairro')
+plt.show()
 
-
-
-
-
-
-alunos = pd.DataFrame({'Nome': ['Ary', 'Cátia', 'Denis', 'Beto', 'Bruna', 'Dara', 'Carlos', 'Alice'], 
-                        'Sexo': ['M', 'F', 'M', 'M', 'F', 'F', 'M', 'F'], 
-                        'Idade': [15, 27, 56, 32, 42, 21, 19, 35], 
-                        'Notas': [7.5, 2.5, 5.0, 10, 8.2, 7, 6, 5.6], 
-                        'Aprovado': [True, False, False, True, True, True, False, False]}, 
-                        columns = ['Nome', 'Idade', 'Sexo', 'Notas', 'Aprovado'])
-
-alunos_sexo = alunos.groupby()
-media_notas_sexo = alunos_sexo[['Notas']].mean().roun(2)
-
-
-
-sexo = alunos.groupby['Sexo']
-sexo = pd.DataFrame(sexo['Notas'].mean().round(2))
-sexo.columns = ['Notas Médias']
-
-
-print(sexo)
+fig_mean = bairros['Valor'].mean().plot.bar(color = 'green')
+fig_mean.set_ylabel('R$')
+fig_mean.set_title('Valor médio do aluguel por bairro')
+plt.show()
