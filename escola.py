@@ -60,12 +60,18 @@ prob = x / sum(x)
 for index, row in df_alunos.iterrows():
     id = row.id_aluno
     matriculas = row.qtd_matriculas
-    for i in range(matriculas):
-        matricula = [id, np.random.choice(df_cursos.index, p = prob)]
-        matriculas_aluno.append(matricula)
+    cont = 0
+    cursos_aluno = []
+    while cont < matriculas:
+        curso = np.random.choice(df_cursos.index, p=prob)
+        if(curso not in cursos_aluno):
+            matriculas_aluno.append([id, curso])
+            cursos_aluno.append(curso)
+            cont += 1
 
-df_matriculas = pd.DataFrame(matriculas_aluno, columns=['id_aluno', 'id_curso'])
+df_matriculas_alunos = pd.DataFrame(matriculas_aluno, columns=['id_aluno', 'id_curso'])
+df_matriculas_alunos.to_csv('matriculas_alunos.csv', sep=';', index=False)
 
-
-# Contagem de alunos inscritos em cada curso
-qtd_alunos_curso = df_matriculas.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd. de alunos'})
+df_matriculas_cursos = df_matriculas_alunos.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd. de alunos'})
+df_matriculas_cursos.to_csv('df_matriculas_cursos.csv', sep=';', index=False)
+print(df_matriculas_alunos)
