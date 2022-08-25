@@ -3,6 +3,7 @@ import numpy as np
 import html5lib
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sqlalchemy import create_engine, MetaData, Table, inspect
 
 nomes_f = pd.read_json('https://guilhermeonrails.github.io/nomes_ibge/nomes-f.json')
 
@@ -52,7 +53,7 @@ df_alunos['qtd_matriculas'] = np.ceil(np.random.exponential(size=total_alunos) *
 # qtd_matriculas_alunos = df_alunos['qtd_matriculas'].value_counts()
 
 
-# Atribuindo cursos aos alunos
+# Atribui cursos aos alunos
 matriculas_aluno = []
 x = np.random.rand(df_cursos.shape[0])
 prob = x / sum(x)
@@ -70,8 +71,13 @@ for index, row in df_alunos.iterrows():
             cont += 1
 
 df_matriculas_alunos = pd.DataFrame(matriculas_aluno, columns=['id_aluno', 'id_curso'])
-df_matriculas_alunos.to_csv('matriculas_alunos.csv', sep=';', index=False)
+# df_matriculas_alunos.to_csv('matriculas_alunos.csv', sep=';', index=False)
 
 df_matriculas_cursos = df_matriculas_alunos.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd. de alunos'})
-df_matriculas_cursos.to_csv('df_matriculas_cursos.csv', sep=';', index=False)
-print(df_matriculas_alunos)
+# df_matriculas_cursos.to_csv('matriculas_cursos.csv', sep=';', index=False)
+
+
+# Cria o banco SQL
+engine = create_engine('sqlite:///:memory:') # SQLite salvando na memória local
+
+df_matriculas_cursos.to_sql('matriculas_cursos', engine) # Cria a tabela matriculas_cursos no banco
