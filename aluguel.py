@@ -1,7 +1,7 @@
 from turtle import color
 import pandas as pd
 import matplotlib.pyplot as plt
-plt.rc('figure', figsize = (20,10))
+import seaborn as sns
 
 dataset = pd.read_csv('aluguel.csv', sep=';')
 
@@ -58,28 +58,28 @@ dados_residencial.index = range(dados_residencial.shape[0])
 series_apartamentos = dados_residencial['Tipo'] == 'Apartamento'
 
 df_apartamentos = dados_residencial[series_apartamentos].shape[0]
-print('> {} apartamentos'.format(df_apartamentos))
+# print('> {} apartamentos'.format(df_apartamentos))
 
 
 # Selecione os imóveis classificados com tipos 'Casa', 'Casa de Condomínio' e 'Casa de Vila'
 series_casas = (dados_residencial['Tipo'] == 'Casa') | (dados_residencial['Tipo'] == 'Casa de Condomínio') | (dados_residencial['Tipo'] == 'Casa de Vila')
 
 df_casas = dados_residencial[series_casas].shape[0]
-print('> {} casas'.format(df_casas))
+# print('> {} casas'.format(df_casas))
 
 
 # Selecione os imóveis com área entre 60 e 100 metros quadrados, incluindo os limites
 series_areas = (dados_residencial['Area'] >= 60) & (dados_residencial['Area'] <= 100)
 
 df_areas = dados_residencial[series_areas].shape[0]
-print('> {} imóveis com área entre 60 m² e 100 m²'.format(df_areas))
+# print('> {} imóveis com área entre 60 m² e 100 m²'.format(df_areas))
 
 
 # Selecione os imóveis que tenham pelo menos 4 quartos e aluguel menor que R$ 2.000,00
 series_quartos_alugueis = (dados_residencial['Quartos'] >= 4) & (dados_residencial['Valor'] < 2000)
 
 df_quartos_alugueis = dados_residencial[series_quartos_alugueis].shape[0]
-print('> {} imóveis com, no mínimo, 4 quartos e aluguel abaixo de R$ 2.000,00'.format(df_quartos_alugueis))
+# print('> {} imóveis com, no mínimo, 4 quartos e aluguel abaixo de R$ 2.000,00'.format(df_quartos_alugueis))
 
 # Lista dos imóveis que tenham pelo menos 4 quartos e aluguel menor que R$ 2.000,00
 # print(dados_residencial[series_quartos_alugueis])
@@ -126,29 +126,33 @@ del dados_residencial['Valor bruto']
 
 # Contagem de tipos
 
-print('*'*30)
+# print('*'*30)
 
 cont_tipos_dataset = dataset['Tipo'].value_counts()
-print(cont_tipos_dataset)
+# print(cont_tipos_dataset)
 
-print('*'*30)
+# print('*'*30)
 
 cont_tipos_residencial = dados_residencial['Tipo'].value_counts()
-print(cont_tipos_residencial)
+# print(cont_tipos_residencial)
 
-print('*'*30)
+# print('*'*30)
 
 bairros = dados_residencial.groupby('Bairro')
 media_preco_bairros = bairros[['Valor', 'Condominio']].mean().round(2)
 
 print(media_preco_bairros.sort_values(by=['Valor'], ascending=False))
 
-fig_std = bairros['Valor'].std().plot.bar(color = 'blue')
-fig_std.set_ylabel('R$')
-fig_std.set_title('Desvio padrão do aluguel por bairro')
-plt.show()
+# fig_std = bairros['Valor'].std().plot.bar(color = 'blue')
+# fig_std.set_ylabel('R$')
+# fig_std.set_title('Desvio padrão do aluguel por bairro')
+# plt.show()
 
-fig_mean = bairros['Valor'].mean().plot.bar(color = 'green')
-fig_mean.set_ylabel('R$')
-fig_mean.set_title('Valor médio do aluguel por bairro')
+# fig_mean = bairros['Valor'].mean().plot.bar(color = 'green')
+# fig_mean.set_ylabel('R$')
+# fig_mean.set_title('Valor médio do aluguel por bairro')
+# plt.show()
+
+# Identifica outliers com boxplot
+fig = dataset.boxplot(['Valor'])
 plt.show()
