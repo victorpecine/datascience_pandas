@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import html5lib
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 nomes_f = pd.read_json('https://guilhermeonrails.github.io/nomes_ibge/nomes-f.json')
 
@@ -15,13 +17,14 @@ total_alunos = len(df_alunos)
 # Cria ids aleatórios entre 1 e 400
 np.random.seed(123)
 df_alunos['id_aluno'] = np.random.permutation(total_alunos) + 1 # Soma 1 para não ter id 0
-df_alunos = df_alunos.set_index('id_aluno')
+
 
 # Cria e-mail par cada aluno a partir dos domínios
 dominios = ['@gmail.com', '@yahoo.com', '@outlook.com', '@terra.com.br', '@hotmail.com']
 df_alunos['dominio_email'] = np.random.choice(dominios, total_alunos) # Atribui os domínios de forma aleatória
 
 df_alunos['email'] = df_alunos.nome.str.cat(df_alunos.dominio_email).str.lower()
+
 
 # Exporta csv com a lista dos alunos
 # nomes.to_csv('nomes_alunos.csv', sep=';', index=False)
@@ -30,8 +33,7 @@ df_alunos['email'] = df_alunos.nome.str.cat(df_alunos.dominio_email).str.lower()
 url = 'https://tabela-cursos.herokuapp.com/index.html'
 lista_cursos = pd.read_html(url)
 
-# Cria dataframe de cursos
-df_cursos = lista_cursos[0]
+df_cursos = lista_cursos[0] # Cria dataframe de cursos
 
 df_cursos = df_cursos.rename(columns={'Nome do curso': 'nome_do_curso'})
 
@@ -39,4 +41,31 @@ df_cursos['id_curso'] = df_cursos.index + 1
 
 df_cursos = df_cursos.set_index('id_curso')
 
-print(df_alunos.sort_values('id_aluno'))
+
+
+df_alunos['qtd_matriculas'] = np.ceil(np.random.exponential(size=total_alunos) * 1.5).astype(int) # Cria a quantidade de matrículas para cada aluno
+
+# graf_matriculas = sns.displot(df_alunos['qtd_matriculas'])
+# graf_matriculas.set(xlabel='Qtd. de matrículas', ylabel='Qtd. de alunos')
+# plt.show()
+
+# qtd_matriculas_alunos = df_alunos['qtd_matriculas'].value_counts()
+
+
+# Atribuindo cursos aos alunos
+matriculas_aluno = []
+x = np.random.rand(df_cursos.shape[0])
+prob = x / sum(x)
+
+for index, row in df_alunos.iterrows():
+    id = row.id_aluno
+    matriculas = row.qtd_matriculas
+    for i in range(matriculas):
+        matricula = [id, np.random.choice(df_cursos.index, p = prob)]
+        matriculas_aluno.append(matricula)
+
+df_matriculas = pd.DataFrame(matriculas_aluno, columns=['id_aluno', 'id_curso'])
+
+
+# Contagem de alunos inscritos em cada curso
+qtd_alunos_curso = df_matriculas.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd. de alunos'})
