@@ -73,7 +73,7 @@ for index, row in df_alunos.iterrows():
 df_matriculas_alunos = pd.DataFrame(matriculas_aluno, columns=['id_aluno', 'id_curso'])
 # df_matriculas_alunos.to_csv('matriculas_alunos.csv', sep=';', index=False)
 
-df_matriculas_cursos = df_matriculas_alunos.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd. de alunos'})
+df_matriculas_cursos = df_matriculas_alunos.groupby('id_curso').count().join(df_cursos['nome_do_curso']).rename(columns={'id_aluno': 'qtd_de_alunos'})
 # df_matriculas_cursos.to_csv('matriculas_cursos.csv', sep=';', index=False)
 
 
@@ -81,3 +81,17 @@ df_matriculas_cursos = df_matriculas_alunos.groupby('id_curso').count().join(df_
 engine = create_engine('sqlite:///:memory:') # SQLite salvando na memória local
 
 df_matriculas_cursos.to_sql('matriculas_cursos', engine) # Cria a tabela matriculas_cursos no banco
+
+inspector = inspect(engine) # Cria um inspector object para o banco
+
+query_1= 'select * from matriculas_cursos where nome_do_curso like "%mysql%"'
+query_1r = pd.read_sql(query_1, con=engine) # r = read
+
+query_matriculas = pd.read_sql_table('matriculas_cursos', engine, columns=['nome_do_curso', 'qtd_de_alunos'])
+query_matriculasr = query_matriculas.query('nome_do_curso.str.contains("MySql")')
+
+
+df_alunos.to_sql('alunos', engine)
+df_cursos.to_sql('cursos', engine)
+
+print(inspector.get_table_names())
