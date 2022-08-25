@@ -82,6 +82,10 @@ engine = create_engine('sqlite:///:memory:') # SQLite salvando na memória local
 
 df_matriculas_cursos.to_sql('matriculas_cursos', engine) # Cria a tabela matriculas_cursos no banco
 
+df_alunos.to_sql('alunos', engine)
+
+df_cursos.to_sql('cursos', engine)
+
 inspector = inspect(engine) # Cria um inspector object para o banco
 
 query_1= 'select * from matriculas_cursos where nome_do_curso like "%mysql%"'
@@ -90,8 +94,19 @@ query_1r = pd.read_sql(query_1, con=engine) # r = read
 query_matriculas = pd.read_sql_table('matriculas_cursos', engine, columns=['nome_do_curso', 'qtd_de_alunos'])
 query_matriculasr = query_matriculas.query('nome_do_curso.str.contains("MySql")')
 
+# print(inspector.get_table_names())
 
-df_alunos.to_sql('alunos', engine)
-df_cursos.to_sql('cursos', engine)
+query_2= 'select * from alunos where qtd_matriculas >= 9'
+query_2r = pd.read_sql(query_2, con=engine)
 
-print(inspector.get_table_names())
+
+# Cria lista de alunos do curso
+id_curso = 1
+nome_curso = df_cursos['nome_do_curso'].loc[id_curso]
+
+lista_alunos_curso = df_matriculas_alunos.query('id_curso == {}'.format(id_curso))
+lista_alunos_curso = lista_alunos_curso.set_index('id_aluno').join(df_alunos.set_index('id_aluno'))['nome'].to_frame()
+
+lista_alunos_curso = lista_alunos_curso.rename(columns={'nome': 'Alunos do curso de {}'.format(nome_curso)})
+
+lista_alunos_curso.to_csv('lista_alunos_curso.csv', sep=';')
