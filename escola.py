@@ -101,15 +101,16 @@ query_2r = pd.read_sql(query_2, con=engine)
 
 
 # Cria e exporta as listas de alunos por curso
-lista_id_cursos = list(df_cursos.index)
+# lista_id_cursos = list(df_cursos.index)
 
 
-for id_curso in lista_id_cursos:
-    id = id_curso
-    nome_curso = df_cursos['nome_do_curso'].loc[id]
+for id_curso, row in df_cursos.iterrows():
+    nome_curso = row['nome_do_curso']
+    # id = id_curso
+    # nome_curso = df_cursos['nome_do_curso'].loc[id]
 
-    lista_alunos_curso = df_matriculas_alunos.query('id_curso == {}'.format(id))
+    lista_alunos_curso = df_matriculas_alunos.query('id_curso == {}'.format(id_curso))
     lista_alunos_curso = lista_alunos_curso.set_index('id_aluno').join(df_alunos.set_index('id_aluno'))['nome'].to_frame()
 
     lista_alunos_curso = lista_alunos_curso.rename(columns={'nome': 'Alunos do curso de {}'.format(nome_curso)})
-    lista_alunos_curso.to_csv('lista_alunos_curso_{}.csv'.format(nome_curso).lower(), sep=';')
+    lista_alunos_curso.to_csv('lista_cursos_alunos/lista_alunos_curso_{}.csv'.format(nome_curso).lower(), sep=';')
